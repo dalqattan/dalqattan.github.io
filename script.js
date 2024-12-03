@@ -734,6 +734,32 @@ function initializeCanvas(canvas, stage) {
     canvas.addEventListener("mousemove", (e) => draw(ctx, canvas, e, stage));
     canvas.addEventListener("mouseleave", () => stopDrawing(ctx, canvas));
 
+    // Touch events
+    canvas.addEventListener("touchstart", (e) => {
+        e.preventDefault(); // Prevent scrolling
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent("mousedown", {
+            clientX: touch.clientX,
+            clientY: touch.clientY,
+        });
+        canvas.dispatchEvent(mouseEvent);
+    });
+
+    canvas.addEventListener("touchmove", (e) => {
+        e.preventDefault(); // Prevent scrolling
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent("mousemove", {
+            clientX: touch.clientX,
+            clientY: touch.clientY,
+        });
+        canvas.dispatchEvent(mouseEvent);
+    });
+
+    canvas.addEventListener("touchend", () => {
+        const mouseEvent = new MouseEvent("mouseup");
+        canvas.dispatchEvent(mouseEvent);
+    });	
+
     // Clear canvas and apply grid overlay
     clearCanvas(canvas);
 	applyGridOverlay();
