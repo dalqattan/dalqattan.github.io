@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- ============================================================
+    PAGE TITLE — Change "Dr. Duaa Salman Alqattan" to your name
+  ============================================================ -->
+  <title>Dr. Duaa Salman Alqattan — Research</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ============================================================
+       COLORS — Change these to update the whole site's color scheme
+       --accent      : main blue color (headings, links, buttons)
+       --accent2     : red color (used for tags)
+       --ink         : main text color
+       --paper       : background color
+    ============================================================ */
+    :root {
+      --ink:     #0f0f14;
+      --paper:   #f7f5f0;
+      --accent:  #1a4f8a;
+      --accent2: #c0392b;
+      --muted:   #6b6b7b;
+      --border:  #e0ddd6;
+      --card:    #ffffff;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0;
+      background: rgba(247,245,240,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 5vw;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center;
+      justify-content: space-between; height: 60px;
+    }
+    /* ============================================================
+       NAV NAME — Change to your preferred display name
+    ============================================================ */
+    .nav-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem; color: var(--ink); text-decoration: none;
+    }
+    .nav-links { display:flex; gap:28px; list-style:none; }
+    .nav-links a {
+      font-size:0.82rem; font-weight:500; color:var(--muted);
+      text-decoration:none; letter-spacing:0.05em; text-transform:uppercase;
+      transition:color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ─────────────────────────────────────────────────── */
+    .hero {
+      max-width: 1100px; margin: 0 auto;
+      padding: 72px 5vw 56px;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 56px; align-items: start;
+    }
+    .hero-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; font-weight:500;
+      text-transform:uppercase; letter-spacing:0.18em;
+      color: var(--accent); margin-bottom:14px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .hero-tag::before {
+      content:''; display:inline-block;
+      width:24px; height:2px; background:var(--accent);
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      line-height:1.1; margin-bottom:18px;
+    }
+    .hero h1 em { font-style:italic; color:var(--accent); }
+    .hero-bio {
+      font-size:1rem; color:#3a3a4a;
+      line-height:1.85; max-width:580px; margin-bottom:24px;
+    }
+    .hero-meta { display:flex; flex-wrap:wrap; gap:18px; margin-bottom:28px; }
+    .meta-pill {
+      display:flex; align-items:center; gap:7px;
+      font-size:0.82rem; color:var(--muted); font-weight:500;
+    }
+    .meta-pill svg { width:13px; height:13px; opacity:0.55; }
+    .hero-links { display:flex; flex-wrap:wrap; gap:10px; }
+    .btn-primary {
+      background:var(--accent); color:white;
+      padding:10px 22px; border-radius:3px;
+      font-size:0.84rem; font-weight:600;
+      text-decoration:none; transition:background 0.2s;
+    }
+    .btn-primary:hover { background:#163f70; }
+    .btn-outline {
+      border:1.5px solid var(--border); color:var(--ink);
+      padding:10px 22px; border-radius:3px;
+      font-size:0.84rem; font-weight:500;
+      text-decoration:none; transition:all 0.2s;
+    }
+    .btn-outline:hover { border-color:var(--accent); color:var(--accent); }
+
+    /* ── PHOTO COLUMN ─────────────────────────────────────────── */
+    .photo-col { position:sticky; top:80px; }
+
+    /* ============================================================
+       PROFILE PHOTO
+       To add your photo:
+         Option A — Put your photo file (e.g. photo.jpg) in the
+                    same folder as this HTML file, then change
+                    the src below from "" to "photo.jpg"
+         Option B — Use an online image URL directly
+       The frame is 260px wide with a 3:4 aspect ratio.
+    ============================================================ */
+    .photo-frame {
+      width:100%; aspect-ratio:3/4;
+      border-radius:4px; overflow:hidden;
+      background: linear-gradient(135deg, #d4e4f5, #bcd4ec);
+      margin-bottom:14px;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .photo-frame img {
+      width:100%; height:100%; object-fit:cover; display:block;
+    }
+    .photo-placeholder {
+      text-align:center; color:var(--accent); opacity:0.45; padding:20px;
+    }
+    .photo-placeholder svg { width:44px; height:44px; margin-bottom:8px; display:block; margin:0 auto 8px; }
+    .photo-placeholder p { font-size:0.78rem; }
+
+    .social-stack { display:flex; flex-direction:column; gap:7px; }
+    .social-btn {
+      display:flex; align-items:center; gap:8px;
+      padding:8px 12px; border:1px solid var(--border);
+      border-radius:3px; font-size:0.78rem; font-weight:500;
+      color:var(--muted); text-decoration:none; transition:all 0.2s;
+    }
+    .social-btn:hover { border-color:var(--accent); color:var(--accent); }
+    .social-btn svg { width:13px; height:13px; opacity:0.6; flex-shrink:0; }
+
+    /* ── SECTION SHARED ───────────────────────────────────────── */
+    .divider { max-width:1100px; margin:0 auto; padding:0 5vw; border-top:1px solid var(--border); }
+    .section { max-width:1100px; margin:0 auto; padding:64px 5vw; }
+    .section-label {
+      font-family:'JetBrains Mono', monospace;
+      font-size:0.68rem; font-weight:500;
+      text-transform:uppercase; letter-spacing:0.18em;
+      color:var(--accent); margin-bottom:6px;
+    }
+    .section-title {
+      font-family:'DM Serif Display', serif;
+      font-size:1.9rem; color:var(--ink); margin-bottom:36px;
+    }
+
+    /* ── TIMELINE (Education / Experience) ───────────────────── */
+    .timeline { display:flex; flex-direction:column; gap:0; }
+    .tl-item {
+      display:grid; grid-template-columns:90px 1fr;
+      gap:24px; padding:20px 0;
+      border-bottom:1px solid var(--border);
+    }
+    .tl-item:last-child { border-bottom:none; }
+    .tl-year {
+      font-family:'JetBrains Mono', monospace;
+      font-size:0.72rem; color:var(--accent);
+      font-weight:500; padding-top:3px;
+    }
+    .tl-content h3 { font-size:0.95rem; font-weight:600; margin-bottom:4px; }
+    .tl-content p { font-size:0.86rem; color:var(--muted); line-height:1.6; }
+    .tl-badge {
+      display:inline-block; margin-top:6px;
+      background:#eef4fb; color:var(--accent);
+      padding:2px 10px; border-radius:2px;
+      font-size:0.73rem; font-weight:600;
+    }
+
+    /* ── RESEARCH INTERESTS ───────────────────────────────────── */
+    .interests-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(270px,1fr));
+      gap:18px;
+    }
+    .interest-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:4px; padding:22px;
+      transition:box-shadow 0.2s, transform 0.2s;
+      position:relative; overflow:hidden;
+    }
+    .interest-card::before {
+      content:''; position:absolute; top:0; left:0;
+      width:3px; height:100%; background:var(--accent);
+    }
+    .interest-card:hover { box-shadow:0 6px 20px rgba(0,0,0,0.07); transform:translateY(-2px); }
+    .interest-icon { font-size:1.5rem; margin-bottom:10px; }
+    .interest-card h3 { font-size:0.92rem; font-weight:600; margin-bottom:6px; }
+    .interest-card p { font-size:0.83rem; color:var(--muted); line-height:1.6; }
+
+    /* ── VISION BOX ───────────────────────────────────────────── */
+    .vision-box {
+      background:var(--accent); color:white;
+      border-radius:4px; padding:36px 44px;
+      margin-bottom:36px; position:relative; overflow:hidden;
+    }
+    .vision-box::after {
+      content:'"'; position:absolute; right:24px; top:-28px;
+      font-family:'DM Serif Display',serif;
+      font-size:11rem; opacity:0.07; line-height:1;
+    }
+    .vision-box p { font-size:1.08rem; line-height:1.85; max-width:700px; font-weight:300; }
+    .vision-box strong { font-weight:600; }
+
+    /* ── PUBLICATIONS ─────────────────────────────────────────── */
+    .pub-list { display:flex; flex-direction:column; gap:18px; }
+    .pub-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:4px; padding:22px 26px;
+      display:grid; grid-template-columns:56px 1fr;
+      gap:18px; align-items:start; transition:box-shadow 0.2s;
+    }
+    .pub-card:hover { box-shadow:0 4px 14px rgba(0,0,0,0.07); }
+    .pub-year {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.7rem; color:var(--accent);
+      font-weight:500; text-align:center; padding-top:2px;
+    }
+    .pub-title { font-size:0.94rem; font-weight:600; color:var(--ink); margin-bottom:5px; line-height:1.5; }
+    .pub-venue { font-size:0.82rem; color:var(--muted); margin-bottom:10px; font-style:italic; }
+    .pub-tags { display:flex; flex-wrap:wrap; gap:5px; }
+    .pub-tag {
+      background:#eef4fb; color:var(--accent);
+      padding:2px 9px; border-radius:2px;
+      font-size:0.73rem; font-weight:500;
+    }
+    .pub-tag.red { background:#fdecea; color:var(--accent2); }
+    .pub-tag.green { background:#eaf6f0; color:#1e6b4a; }
+    .pub-doi {
+      display:inline-flex; align-items:center; gap:5px;
+      margin-top:8px; font-size:0.78rem; color:var(--accent);
+      text-decoration:none; font-family:'JetBrains Mono',monospace;
+    }
+    .pub-doi:hover { text-decoration:underline; }
+
+    /* ── AWARDS / ACTIVITIES ──────────────────────────────────── */
+    .award-list { display:flex; flex-direction:column; gap:0; }
+    .award-item {
+      display:grid; grid-template-columns:90px 1fr;
+      gap:24px; padding:16px 0;
+      border-bottom:1px solid var(--border);
+    }
+    .award-item:last-child { border-bottom:none; }
+    .award-year {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.7rem; color:var(--accent);
+      font-weight:500; padding-top:3px;
+    }
+    .award-text { font-size:0.88rem; color:var(--ink); line-height:1.6; }
+    .award-text strong { font-weight:600; }
+
+    /* ── TALKS ────────────────────────────────────────────────── */
+    .talks-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(300px,1fr));
+      gap:16px;
+    }
+    .talk-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:4px; padding:20px 22px;
+    }
+    .talk-year {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.68rem; color:var(--accent);
+      font-weight:500; margin-bottom:6px;
+    }
+    .talk-title { font-size:0.9rem; font-weight:600; margin-bottom:4px; }
+    .talk-event { font-size:0.81rem; color:var(--muted); }
+
+    /* ── CERTIFICATES ─────────────────────────────────────────── */
+    .cert-list { display:flex; flex-wrap:wrap; gap:12px; }
+    .cert-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:4px; padding:14px 20px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .cert-icon { font-size:1.3rem; }
+    .cert-name { font-size:0.88rem; font-weight:600; }
+    .cert-issuer { font-size:0.78rem; color:var(--muted); }
+
+    /* ── CONTACT ──────────────────────────────────────────────── */
+    .contact-section { background:var(--ink); color:white; padding:64px 5vw; }
+    .contact-inner {
+      max-width:1100px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:56px; align-items:start;
+    }
+    .contact-section .section-label { color:#7eaadd; }
+    .contact-section .section-title { color:white; margin-bottom:14px; }
+    .contact-intro { color:#9999b0; font-size:0.93rem; line-height:1.85; margin-bottom:24px; }
+    .contact-email {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.9rem; color:white; text-decoration:none;
+      border-bottom:1px solid #333; padding-bottom:3px; transition:border-color 0.2s;
+    }
+    .contact-email:hover { border-color:#7eaadd; }
+    .contact-links { display:flex; flex-direction:column; gap:12px; padding-top:4px; }
+    .contact-link {
+      display:flex; align-items:center; gap:14px;
+      padding:13px 16px; border:1px solid #1e1e2e;
+      border-radius:4px; text-decoration:none;
+      color:#ccccdd; font-size:0.86rem; transition:all 0.2s;
+    }
+    .contact-link:hover { border-color:#7eaadd; color:white; }
+    .cl-label {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.62rem; text-transform:uppercase;
+      letter-spacing:0.1em; color:#7eaadd;
+      display:block; margin-bottom:2px;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────────── */
+    footer {
+      background:#060610; color:#44445a;
+      text-align:center; padding:22px;
+      font-size:0.78rem; font-family:'JetBrains Mono',monospace;
+    }
+
+    /* ── ANIMATIONS ───────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(18px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .fu { animation:fadeUp 0.55s ease forwards; opacity:0; }
+    .d1{animation-delay:.08s} .d2{animation-delay:.16s}
+    .d3{animation-delay:.24s} .d4{animation-delay:.32s}
+
+    /* ── RESPONSIVE ───────────────────────────────────────────── */
+    @media(max-width:768px){
+      .hero { grid-template-columns:1fr; }
+      .photo-col { display:none; }
+      .contact-inner { grid-template-columns:1fr; }
+      .nav-links { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+  NAVIGATION BAR
+  — Change the name text and section links as needed
+============================================================ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Dr. Duaa Salman Alqattan</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#activities">Activities</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+  HERO SECTION — Your name, title, bio, and quick links
+============================================================ -->
+<section id="about">
+  <div class="hero">
+
+    <!-- LEFT COLUMN: Text -->
+    <div>
+      <!-- ── Subtitle tag above name ── -->
+      <div class="hero-tag fu">
+        Edge AI Security · Federated Learning · Assistive AI
+      </div>
+
+      <!-- ============================================================
+        YOUR NAME — Edit the two lines below
+      ============================================================ -->
+      <h1 class="fu d1">Duaa Salman<br><em>Alqattan</em></h1>
+
+      <!-- ============================================================
+        SHORT BIO — Edit this paragraph (2–4 sentences)
+      ============================================================ -->
+      <p class="hero-bio fu d2">
+        I am a researcher and faculty member at the intersection of
+        <strong>Edge AI Security</strong>, <strong>Hierarchical Federated Learning</strong>,
+        and <strong>Assistive Human-Machine Intelligence</strong>.
+        My PhD (Newcastle University, 2025) focused on adversarial attack analysis
+        and modular detection for distributed IoT systems.
+        I am driven by one question —
+        <strong>how do we make AI systems secure, private, and trustworthy for the humans who depend on them?</strong>
+      </p>
+
+      <!-- ── Institution / Location pills ── -->
+      <div class="hero-meta fu d3">
+        <!-- ============================================================
+          AFFILIATION — Edit institution and role below
+        ============================================================ -->
+        <span class="meta-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          Professional Trainer &amp; Head of Research — TVTC, Saudi Arabia
+        </span>
+        <!-- ============================================================
+          LOCATION — Edit city and country below
+        ============================================================ -->
+        <span class="meta-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          Al-Ahsa, Saudi Arabia
+        </span>
+      </div>
+
+      <!-- ── CTA Buttons ── -->
+      <div class="hero-links fu d4">
+        <a href="#publications" class="btn-primary">View Publications</a>
+        <a href="#contact" class="btn-outline">Get In Touch</a>
+        <!-- ============================================================
+          GOOGLE SCHOLAR LINK — Already set. Update user ID if needed.
+        ============================================================ -->
+        <a href="https://scholar.google.com/citations?user=O3cU3g4AAAAJ&hl=en"
+           target="_blank" class="btn-outline">Google Scholar</a>
+      </div>
+    </div><!-- /left column -->
+
+
+    <!-- RIGHT COLUMN: Photo + Social Links -->
+    <div class="photo-col fu d2">
+
+      <!-- ============================================================
+        PROFILE PHOTO
+        HOW TO ADD YOUR PHOTO:
+          1. Save your photo as "photo.jpg" (or .png) in the same
+             folder as this index.html file
+          2. Replace the comment below with:
+             <img src="photo.jpg" alt="Dr. Duaa Salman Alqattan">
+          3. Delete the placeholder block (the div.photo-placeholder)
+
+        OR use an online URL:
+          <img src="https://yourlink.com/photo.jpg" alt="Dr. Duaa">
+      ============================================================ -->
+      <div class="photo-frame">
+        <!-- DELETE THIS PLACEHOLDER BLOCK WHEN YOU ADD YOUR PHOTO -->
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <p>Add your photo<br>(see HTML comment above)</p>
+        </div>
+        <!-- ADD YOUR PHOTO HERE — example:
+        <img src="photo.jpg" alt="Dr. Duaa Salman Alqattan">
+        -->
+      </div>
+
+      <!-- ============================================================
+        SOCIAL / PROFILE LINKS
+        — Add or remove <a> blocks as needed
+        — Replace # with your actual URLs
+      ============================================================ -->
+      <div class="social-stack">
+
+        <!-- Google Scholar — already filled in -->
+        <a href="https://scholar.google.com/citations?user=O3cU3g4AAAAJ&hl=en"
+           target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg>
+          Google Scholar
+        </a>
+
+        <!-- ============================================================
+          LINKEDIN — Replace # with your LinkedIn URL
+        ============================================================ -->
+        <a href="#" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+
+        <!-- ============================================================
+          RESEARCHGATE — Replace # with your ResearchGate URL
+        ============================================================ -->
+        <a href="#" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a12.854 12.854 0 0 0-.347 3.44v2.027l-.566.565H14.5v1.695h.887v7.794H13.03V19.5h5.484v-1.734h-1.345V9.97h2.042l.308-1.695h-2.35V6.252c0-.661.097-1.13.29-1.41.194-.279.517-.418.97-.418.241 0 .484.04.726.12l.242-.04V.16A14.33 14.33 0 0 0 19.586 0zM4.5 4.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-2 6v9h4v-9h-4z"/></svg>
+          ResearchGate
+        </a>
+
+        <!-- ============================================================
+          EMAIL shortcut
+        ============================================================ -->
+        <a href="mailto:Dalqattan@tvtc.gov.sa" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Email Me
+        </a>
+
+      </div><!-- /social-stack -->
+    </div><!-- /photo-col -->
+
+  </div><!-- /hero -->
+</section>
+
+
+<div class="divider"></div>
+
+
+<!-- ============================================================
+  EDUCATION SECTION
+  — Add more <div class="tl-item"> blocks to add degrees
+============================================================ -->
+<section id="education" class="section">
+  <div class="section-label">Academic Background</div>
+  <div class="section-title">Education</div>
+  <div class="timeline">
+
+    <!-- PhD -->
+    <div class="tl-item">
+      <div class="tl-year">2025</div>
+      <div class="tl-content">
+        <h3>Ph.D. in Advanced Computer Science</h3>
+        <p>Newcastle University, United Kingdom</p>
+        <p>Security of artificial intelligence, Edge and distributed AI systems</p>
+        <span class="tl-badge">Nominated — Best PhD Dissertation Award</span>
+      </div>
+    </div>
+
+    <!-- MSc -->
+    <div class="tl-item">
+      <div class="tl-year">2016</div>
+      <div class="tl-content">
+        <h3>MSc in Computer Engineering <em style="font-weight:400;color:var(--accent)">(Distinction)</em></h3>
+        <p>University of Essex, United Kingdom</p>
+      </div>
+    </div>
+
+    <!-- BSc -->
+    <div class="tl-item">
+      <div class="tl-year">2006</div>
+      <div class="tl-content">
+        <h3>BSc in Computer Sciences <em style="font-weight:400;color:var(--accent)">(94%)</em></h3>
+        <p>Imam Abdulrahman Bin Faisal University, Saudi Arabia</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="divider"></div>
+
+
+<!-- ============================================================
+  RESEARCH SECTION — Vision statement + interest cards
+  — Edit vision text and add/remove interest cards as needed
+============================================================ -->
+<section id="research" class="section">
+  <div class="section-label">Research Focus</div>
+  <div class="section-title">What I Work On</div>
+
+  <!-- ============================================================
+    VISION STATEMENT — Edit this paragraph
+  ============================================================ -->
+  <div class="vision-box">
+    <p>
+      My research bridges <strong>Edge AI Security</strong> and
+      <strong>Assistive Human-Machine Intelligence</strong>.
+      From securing hierarchical federated learning systems against adversarial attacks,
+      to building modular detection for IoT networks,
+      to applying brain-computer interfaces for human communication —
+      <strong>every thread connects to one goal: making AI systems safe for real people in the real world.</strong>
+    </p>
+  </div>
+
+  <!-- ============================================================
+    RESEARCH INTEREST CARDS
+    — Edit emoji, title, and description for each card
+    — Add a new card by copying one <div class="interest-card"> block
+  ============================================================ -->
+  <div class="interests-grid">
+
+    <div class="interest-card">
+      <div class="interest-icon">🛡️</div>
+      <h3>Hierarchical Federated Learning Security</h3>
+      <p>Adversarial attack analysis and discrimination scoring of client models at the edge server in distributed AI systems.</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-icon">🔍</div>
+      <h3>Modular Neural Networks for IoT</h3>
+      <p>Lightweight, edge-deployable detection for early-stage botnet and intrusion threats in constrained IoT environments.</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-icon">🧠</div>
+      <h3>Brain-Computer Interface &amp; EEG</h3>
+      <p>Motor imagery signal processing and ML for sign language recognition — bridging neural signals and human communication.</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-icon">👂</div>
+      <h3>AI for Cochlear Implants</h3>
+      <p>Applying secure, privacy-preserving edge AI to hearing assistive devices — ensuring neural data remains protected.</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-icon">🌐</div>
+      <h3>Edge AI Security Frameworks</h3>
+      <p>End-to-end security assessment for hierarchical federated deep learning systems deployed at scale in critical infrastructure.</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-icon">🏙️</div>
+      <h3>Smart City &amp; Vision 2030</h3>
+      <p>Security and privacy for AI systems in large-scale IoT deployments — directly aligned with Saudi Arabia's Vision 2030.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="divider"></div>
+
+
+<!-- ============================================================
+  PUBLICATIONS SECTION
+  — Add a new publication by copying a <div class="pub-card"> block
+  — Fill in: year, title, venue (journal/conference), tags, and DOI link
+============================================================ -->
+<section id="publications" class="section">
+  <div class="section-label">Peer-Reviewed Work</div>
+  <div class="section-title">Publications</div>
+  <div class="pub-list">
+
+    <!-- Publication 1 -->
+    <div class="pub-card">
+      <div class="pub-year">2025</div>
+      <div>
+        <div class="pub-title">
+          Analysis of Deep Learning Under Adversarial Attacks in Hierarchical Federated Learning
+        </div>
+        <!-- ============================================================
+          VENUE — Edit journal/conference name
+        ============================================================ -->
+        <div class="pub-venue">High-Confidence Computing, p.100321 · Alqattan, D.S., Snasel, V., Ranjan, R. and Ojha, V.</div>
+        <div class="pub-tags">
+          <span class="pub-tag">Adversarial Attacks</span>
+          <span class="pub-tag">HFL Security</span>
+          <span class="pub-tag">Deep Learning</span>
+          <span class="pub-tag red">Journal</span>
+        </div>
+        <!-- ============================================================
+          DOI LINK — Replace # with the actual DOI URL
+        ============================================================ -->
+        <a href="#" class="pub-doi" target="_blank">→ View Paper</a>
+      </div>
+    </div>
+
+    <!-- Publication 2 -->
+    <div class="pub-card">
+      <div class="pub-year">2025</div>
+      <div>
+        <div class="pub-title">
+          Modular Neural Network for Edge-Based Detection of Early-Stage IoT Botnet
+        </div>
+        <div class="pub-venue">High-Confidence Computing, 5(1), p.100230 · Alqattan, D., Ojha, V., Habib, F., Noor, A., Morgan, G. and Ranjan, R.</div>
+        <div class="pub-tags">
+          <span class="pub-tag">Modular Neural Network</span>
+          <span class="pub-tag">IoT Security</span>
+          <span class="pub-tag">Edge Detection</span>
+          <span class="pub-tag red">Journal</span>
+        </div>
+        <a href="#" class="pub-doi" target="_blank">→ View Paper</a>
+      </div>
+    </div>
+
+    <!-- Publication 3 -->
+    <div class="pub-card">
+      <div class="pub-year">2024</div>
+      <div>
+        <div class="pub-title">
+          Security Assessment of Hierarchical Federated Deep Learning
+        </div>
+        <div class="pub-venue">International Conference on Artificial Neural Networks (ICANN), pp.202–217. Springer · Alqattan, D.S., Sun, R., Liang, H., Nicosia, G., Snasel, V., Ranjan, R. and Ojha, V.</div>
+        <div class="pub-tags">
+          <span class="pub-tag">Security Assessment</span>
+          <span class="pub-tag">Federated Learning</span>
+          <span class="pub-tag">Discrimination Scoring</span>
+          <span class="pub-tag green">Conference</span>
+        </div>
+        <a href="#" class="pub-doi" target="_blank">→ View Paper</a>
+      </div>
+    </div>
+
+    <!-- Publication 4 -->
+    <div class="pub-card">
+      <div class="pub-year">2022</div>
+      <div>
+        <div class="pub-title">
+          Dynamic Bandwidth Slicing for Time-Critical IoT Data Streams in the Edge-Cloud Continuum
+        </div>
+        <div class="pub-venue">IEEE Transactions on Industrial Informatics, 18(11), pp.8017–8026 · Habeeb, F., Alwasel, K., Noor, A., Jha, D.N., AlQattan, D. et al.</div>
+        <div class="pub-tags">
+          <span class="pub-tag">IoT</span>
+          <span class="pub-tag">Edge-Cloud</span>
+          <span class="pub-tag">Bandwidth Slicing</span>
+          <span class="pub-tag red">Journal · IEEE</span>
+        </div>
+        <a href="#" class="pub-doi" target="_blank">→ View Paper</a>
+      </div>
+    </div>
+
+    <!-- Publication 5 -->
+    <div class="pub-card">
+      <div class="pub-year">2017</div>
+      <div>
+        <div class="pub-title">
+          Towards Sign Language Recognition Using EEG-Based Motor Imagery Brain Computer Interface
+        </div>
+        <div class="pub-venue">5th International Winter Conference on Brain-Computer Interface (BCI), IEEE · AlQattan, D. and Sepulveda, F.</div>
+        <div class="pub-tags">
+          <span class="pub-tag">EEG</span>
+          <span class="pub-tag">Motor Imagery</span>
+          <span class="pub-tag">Sign Language</span>
+          <span class="pub-tag">BCI</span>
+          <span class="pub-tag green">Conference · IEEE</span>
+        </div>
+        <a href="#" class="pub-doi" target="_blank">→ View Paper</a>
+      </div>
+    </div>
+
+  </div><!-- /pub-list -->
+
+  <div style="margin-top:26px;">
+    <a href="https://scholar.google.com/citations?user=O3cU3g4AAAAJ&hl=en"
+       target="_blank" class="btn-outline">View Full Profile on Google Scholar →</a>
+  </div>
+</section>
+
+
+<div class="divider"></div>
+
+
+<!-- ============================================================
+  INVITED TALKS SECTION
+  — Add a new talk by copying a <div class="talk-card"> block
+============================================================ -->
+<section id="talks" class="section">
+  <div class="section-label">Knowledge Sharing</div>
+  <div class="section-title">Invited Lectures &amp; Talks</div>
+  <div class="talks-grid">
+
+    <div class="talk-card">
+      <div class="talk-year">2025</div>
+      <div class="talk-title">AI Security Awareness</div>
+      <div class="talk-event">Cybersecurity Awareness Month · Technical and Vocational Training Corporation, Saudi Arabia</div>
+    </div>
+
+    <div class="talk-card">
+      <div class="talk-year">2025</div>
+      <div class="talk-title">Innovation Centre Management in the AI Era</div>
+      <div class="talk-event">Innovation Week · Ahsa Technical College for Girls, Saudi Arabia</div>
+    </div>
+
+    <div class="talk-card">
+      <div class="talk-year">2025</div>
+      <div class="talk-title">Security of Internet of Things</div>
+      <div class="talk-event">IoT Course · School of Computing, Newcastle University, UK</div>
+    </div>
+
+    <div class="talk-card">
+      <div class="talk-year">2024</div>
+      <div class="talk-title">AI for Internet of Things Security</div>
+      <div class="talk-event">IoT Course · School of Computing, Newcastle University, UK</div>
+    </div>
+
+    <div class="talk-card">
+      <div class="talk-year">2021</div>
+      <div class="talk-title">Anomaly Detection Using AI for Cloud Computing</div>
+      <div class="talk-event">Cloud Computing Course · School of Computing, Newcastle University, UK</div>
+    </div>
+
+    <!-- ============================================================
+      ADD A NEW TALK — Copy and paste this block:
+      <div class="talk-card">
+        <div class="talk-year">YEAR</div>
+        <div class="talk-title">Talk Title</div>
+        <div class="talk-event">Event Name · Location</div>
+      </div>
+    ============================================================ -->
+
+  </div>
+</section>
+
+
+<div class="divider"></div>
+
+
+<!-- ============================================================
+  AWARDS SECTION
+  — Add a new award by copying a <div class="award-item"> block
+============================================================ -->
+<section id="awards" class="section">
+  <div class="section-label">Recognition</div>
+  <div class="section-title">Scholarships, Awards &amp; Honours</div>
+  <div class="award-list">
+
+    <div class="award-item">
+      <div class="award-year">2025</div>
+      <div class="award-text"><strong>Nominated</strong> — Best PhD Dissertation Award, Newcastle University</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2024</div>
+      <div class="award-text"><strong>Conference Travel Grant</strong> — Newcastle University</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2023</div>
+      <div class="award-text"><strong>Selected Participant</strong> — Data Science Hackathon, The Alan Turing Institute, United Kingdom</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2020</div>
+      <div class="award-text"><strong>Excellence Reward</strong> for academic achievements — Saudi Arabian Cultural Bureau in London</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2019</div>
+      <div class="award-text"><strong>Doctoral Program Scholarship</strong> — Technical and Vocational Training Corporation, Saudi Arabia</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2018</div>
+      <div class="award-text"><strong>Excellence Reward</strong> for scientific achievements — Technical and Vocational Training Corporation</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2016</div>
+      <div class="award-text"><strong>Excellence Reward</strong> for academic achievements — Saudi Arabian Cultural Bureau in London</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2014</div>
+      <div class="award-text"><strong>Master Program Scholarship</strong> — Technical and Vocational Training Corporation, Saudi Arabia</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2006–2014</div>
+      <div class="award-text"><strong>Honour for Distinguished Achievements</strong> in training and managing the Computer Department — Ahsa Technical College for Girls</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2003–2006</div>
+      <div class="award-text"><strong>Yearly Excellence Reward</strong> for academic achievements — Science College, Imam Abdulrahman Bin Faisal University</div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="divider"></div>
+
+
+<!-- ============================================================
+  CERTIFICATES SECTION
+  — Add a new certificate by copying a <div class="cert-card"> block
+============================================================ -->
+<section class="section">
+  <div class="section-label">Professional Development</div>
+  <div class="section-title">Certificates</div>
+  <div class="cert-list">
+
+    <div class="cert-card">
+      <div class="cert-icon">🔐</div>
+      <div>
+        <div class="cert-name">AI Security and Governance Certification</div>
+        <div class="cert-issuer">Securiti · 2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🎓</div>
+      <div>
+        <div class="cert-name">Associate Fellow of the Higher Education Academy</div>
+        <div class="cert-issuer">Newcastle University · 2024</div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+      ADD A CERTIFICATE — Copy this block:
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div>
+          <div class="cert-name">Certificate Name</div>
+          <div class="cert-issuer">Issuing Body · Year</div>
+        </div>
+      </div>
+    ============================================================ -->
+
+  </div>
+</section>
+
+
+<div class="divider"></div>
+
+
+<!-- ============================================================
+  OTHER ACTIVITIES SECTION
+  — Add a new activity by copying a <div class="award-item"> block
+============================================================ -->
+<section id="activities" class="section">
+  <div class="section-label">Community &amp; Service</div>
+  <div class="section-title">Other Activities</div>
+  <div class="award-list">
+
+    <div class="award-item">
+      <div class="award-year">2025</div>
+      <div class="award-text"><strong>Judge</strong> — "Mubtakeron" Innovation Competition, Technical and Vocational Training Corporation, Saudi Arabia</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2025</div>
+      <div class="award-text"><strong>Judge</strong> — Robotics and Artificial Intelligence Competition, Technical and Vocational Training Corporation, Saudi Arabia</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2025</div>
+      <div class="award-text"><strong>Domain Expert</strong> — National Skills Competition in Cybersecurity, Technical and Vocational Training Corporation, Saudi Arabia</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2025</div>
+      <div class="award-text"><strong>Peer Reviewer</strong> — Journal of Supercomputing (Springer)</div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2021</div>
+      <div class="award-text"><strong>Volunteer Coordinator</strong> — Media Committee, Saudi Student Club, Newcastle, United Kingdom</div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="divider"></div>
+
+
+<!-- ============================================================
+  CONTACT SECTION
+  — Edit email, intro text, and social links below
+============================================================ -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+
+    <div>
+      <div class="section-label">Get In Touch</div>
+      <div class="section-title">Contact</div>
+      <!-- ============================================================
+        CONTACT INTRO — Edit this paragraph
+      ============================================================ -->
+      <p class="contact-intro">
+        I welcome collaboration on Edge AI security, federated learning,
+        IoT systems, and assistive AI research.
+        Whether you are a researcher, industry partner, or student —
+        feel free to reach out.
+      </p>
+      <!-- ============================================================
+        EMAIL — Already filled from your CV. Update if needed.
+      ============================================================ -->
+      <a href="mailto:Dalqattan@tvtc.gov.sa" class="contact-email">
+        Dalqattan@tvtc.gov.sa
+      </a>
+    </div>
+
+    <!-- ============================================================
+      CONTACT QUICK LINKS — Replace # with your actual URLs
+    ============================================================ -->
+    <div class="contact-links">
+
+      <a href="https://scholar.google.com/citations?user=O3cU3g4AAAAJ&hl=en"
+         target="_blank" class="contact-link">
+        <div>
+          <span class="cl-label">Academic Profile</span>
+          Google Scholar
+        </div>
+      </a>
+
+      <!-- LinkedIn — Replace # with your URL -->
+      <a href="#" target="_blank" class="contact-link">
+        <div>
+          <span class="cl-label">Professional Network</span>
+          LinkedIn
+        </div>
+      </a>
+
+      <!-- ResearchGate — Replace # with your URL -->
+      <a href="#" target="_blank" class="contact-link">
+        <div>
+          <span class="cl-label">Research Network</span>
+          ResearchGate
+        </div>
+      </a>
+
+      <a href="mailto:Dalqattan@tvtc.gov.sa" class="contact-link">
+        <div>
+          <span class="cl-label">Direct Email</span>
+          Dalqattan@tvtc.gov.sa
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+  FOOTER — Edit name and year automatically updates
+============================================================ -->
+<footer>
+  Dr. Duaa Salman Alqattan &nbsp;·&nbsp; Edge AI Security &nbsp;·&nbsp;
+  <span id="yr"></span>
+</footer>
+
+<script>
+  // Auto year in footer
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
